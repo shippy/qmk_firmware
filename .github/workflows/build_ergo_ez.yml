@@ -32,11 +32,13 @@ jobs:
       - name: Build firmware
         run: |
           qmk compile -kb ergodox_ez/glow -km adv360_eq
-
+      - name: List files
+        run: ls -la *
       - name: Archive
         uses: actions/upload-artifact@v4
         with:
           name: firmware
           path: |
-            ./build/ergodox_ez_glow_adv360_eq.hex
+            *.bin
+            *.hex
 
