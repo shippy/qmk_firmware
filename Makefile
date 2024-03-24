@@ -63,7 +63,7 @@ include paths.mk
 TEST_OUTPUT_DIR := $(BUILD_DIR)/test
 ERROR_FILE := $(BUILD_DIR)/error_occurred
 
-.DEFAULT_GOAL := all:all
+.DEFAULT_GOAL := ergodox_ez/glow:adv360_eq
 
 
 # Compare the start of the RULE variable with the first argument($1)
