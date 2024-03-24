@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
+#include "features/achordion.h"
 
 enum custom_keycodes {
   RGB_SLD = SAFE_RANGE,
@@ -59,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [4] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, RGUI(RSFT(KC_P)),                                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, RGUI(KC_C),                                     TD(DANCE_4),    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, MT(MOD_LCTL, KC_A), MT(MOD_LALT, KC_S), MT(MOD_LGUI, KC_D), MT(MOD_LSFT, KC_F), KC_TRANSPARENT,                                                 KC_TRANSPARENT, MT(MOD_RSFT, KC_H), MT(MOD_RGUI, KC_J), MT(MOD_RALT, KC_K), MT(MOD_RCTL, KC_L), KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, RGUI(KC_V),                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_RIGHT_CTRL,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_LEFT_GUI,    KC_LEFT_GUI,    KC_TRANSPARENT,
@@ -134,6 +135,8 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_achordion(keycode, record)) { return false; }
+
   switch (keycode) {
     case ST_MACRO_0:
     if (record->event.pressed) {
@@ -149,6 +152,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+void matrix_scan_user(void) {
+  achordion_task();
+}
+
+// Per https://getreuer.info/posts/keyboards/achordion/index.html#tap_hold_configuration
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
+  // If you quickly hold a tap-hold key after tapping it, the tap action is
+  // repeated. Key repeating is useful e.g. for Vim navigation keys, but can
+  // lead to missed triggers in fast typing. Here, returning 0 means we
+  // instead want to "force hold" and disable key repeating.
+  switch (keycode) {
+    // FIXME: The following were throwing define errors
+    // case HOME_N:
+    // // Repeating is useful for Vim navigation keys.
+    case KC_J:
+    // case QHOME_J:
+    // case QHOME_K:
+    // case QHOME_L:
+      return QUICK_TAP_TERM;  // Enable key repeating.
+    default:
+      return 0;  // Otherwise, force hold and disable key repeating.
+  }
+}
+
 
 uint8_t layer_state_set_user(uint8_t state) {
     uint8_t layer = biton(state);
