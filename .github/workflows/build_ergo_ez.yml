@@ -14,14 +14,20 @@ jobs:
       image: ghcr.io/qmk/qmk_cli
 
     steps:
+      - name: Disable safe.directory check
+        run: git config --global --add safe.directory '*'
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Set up QMK environment
-        run: |
-          qmk setup
+      - name: Install dependencies
+        run: pip3 install -r requirements.txt
+
+      # - name: Set up QMK environment
+      #   run: |
+      #     qmk setup
 
       - name: Build firmware
         run: |
