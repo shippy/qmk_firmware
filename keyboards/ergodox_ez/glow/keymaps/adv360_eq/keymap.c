@@ -7,6 +7,19 @@ enum custom_keycodes {
   ST_MACRO_0,
 };
 
+// Home row mods for the Windows layer
+
+// Home row mods for Mac layer.
+#define MHOME_A LCTL_T(KC_A)
+#define MHOME_S LALT_T(KC_S)
+#define MHOME_D LGUI_T(KC_D)
+#define MHOME_F LSFT_T(KC_F)
+// TODO: Should be shifted by one?
+#define MHOME_H RSFT_T(KC_H)
+#define MHOME_J RGUI_T(KC_J)
+#define MHOME_K RALT_T(KC_K)
+#define MHOME_L RCTL_T(KC_L)
+
 
 enum tap_dance_codes {
   DANCE_0,
@@ -60,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [4] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, RGUI(RSFT(KC_P)),                                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, RGUI(KC_C),                                     TD(DANCE_4),    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, MT(MOD_LCTL, KC_A), MT(MOD_LALT, KC_S), MT(MOD_LGUI, KC_D), MT(MOD_LSFT, KC_F), KC_TRANSPARENT,                                                 KC_TRANSPARENT, MT(MOD_RSFT, KC_H), MT(MOD_RGUI, KC_J), MT(MOD_RALT, KC_K), MT(MOD_RCTL, KC_L), KC_TRANSPARENT,
+    KC_TRANSPARENT, MHOME_A,        MHOME_S,        MHOME_D,        MHOME_F,        KC_TRANSPARENT,                                                                 MHOME_H,        MHOME_J,        MHOME_K,        MHOME_L,        KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, RGUI(KC_V),                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_RIGHT_CTRL,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_LEFT_GUI,    KC_LEFT_GUI,    KC_TRANSPARENT,
@@ -167,10 +180,9 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
     // FIXME: The following were throwing define errors
     // case HOME_N:
     // // Repeating is useful for Vim navigation keys.
-    case KC_J:
-    // case QHOME_J:
-    // case QHOME_K:
-    // case QHOME_L:
+    case MHOME_J:
+    case MHOME_K:
+    case MHOME_L:
       return QUICK_TAP_TERM;  // Enable key repeating.
     default:
       return 0;  // Otherwise, force hold and disable key repeating.
