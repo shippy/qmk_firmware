@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT(1,KC_ESCAPE),WHOME_A,        WHOME_S,        WHOME_D,        WHOME_F,        KC_G,                                                                           KC_H,           WHOME_J,        WHOME_K,        WHOME_L,        WHOME_SCLN,     LT(1,KC_QUOTE),
     KC_LEFT_ALT,    KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           TD(DANCE_2),                                    KC_MEH,         KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_LEFT_GUI,
     KC_GRAVE,       KC_NUBS,        LSFT(KC_LEFT_CTRL),KC_LEFT,        KC_RIGHT,                                                                                                       KC_DOWN,        KC_UP,          KC_LBRC,        KC_RBRC,        RSFT(KC_RIGHT_CTRL),
-                                                                                                    SC_LSPO,        KC_LEFT_CTRL,   MT(MOD_RCTL, KC_LEFT_GUI),SC_RSPC,
+                                                                                                    KC_LEFT_SHIFT,      KC_LEFT_CTRL,   MT(MOD_RCTL, KC_LEFT_GUI), KC_RIGHT_SHIFT,
                                                                                                                     MT(MOD_RGUI, KC_HOME),MT(MOD_LGUI, KC_PAGE_UP),
                                                                                     KC_BSPC,        KC_DELETE,      MT(MOD_RALT, KC_END),MT(MOD_LALT, KC_PGDN),KC_ENTER,       KC_SPACE
   ),
