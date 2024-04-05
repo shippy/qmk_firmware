@@ -6,3 +6,6 @@ ORYX_ENABLE = yes
 DYNAMIC_MACRO_ENABLE = yes
 TAP_DANCE_ENABLE = yes
 LTO_ENABLE = yes
+
+# Also enables filterpaper's gist (doesn't work with COMBO_ENABLE = yes):
+COMBO_ENABLE = yes

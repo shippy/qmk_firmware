@@ -13,9 +13,14 @@
 #define LAYER_STATE_8BIT
 
 #define RGB_MATRIX_STARTUP_SPD 60
+
+// Settings to do with home row mods
 #define TAPPING_TERM 175
 #define PERMISSIVE_HOLD
+// Must be less than or equal to TAPPING_TERM
 #define QUICK_TAP_TERM 150
+// Non-QMK value, used in `filterpaper` code snippet
+#define REQUIRE_PRIOR_IDLE 175
 
 // #define QUICK_TAP_TERM_PER_KEY
 // needs uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {

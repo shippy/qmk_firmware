@@ -157,6 +157,61 @@ bool rgb_matrix_indicators_user(void) {
   return true;
 }
 
+// Required for combo functionality: Mac screenshot!
+// Also required for the `filterpaper` fix below
+const uint16_t PROGMEM test_combo1[] = {KC_Q, KC_W, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(test_combo1, LGUI(LSFT(KC_4))),
+};
+
+// Courtesy of user `filterpaper` on the QMK Discord
+// https://gist.github.com/filterpaper/cbf6fbf2bbf83015b025d92483f5cff5
+
+// Requires REPEAT_KEY_ENABLE or COMBO_ENABLE and
+// QUICK_TAP_TERM configured with typical typing interval
+
+#define IS_HOMEROW_CAG(kc) (                  \
+    IS_QK_MOD_TAP(kc)                      && \
+    (kc) & (QK_LCTL | QK_LALT | QK_LGUI)   && \
+    QK_MOD_TAP_GET_TAP_KEYCODE(kc) >= KC_A && \
+    QK_MOD_TAP_GET_TAP_KEYCODE(kc) <= KC_Z    \
+)
+
+#define IS_TYPING(prev_kc) (                              \
+    last_input_activity_elapsed() < REQUIRE_PRIOR_IDLE && \
+    (uint8_t)(prev_kc) >= KC_A                         && \
+    (uint8_t)(prev_kc) <= KC_SLSH                      && \
+    !IS_QK_LAYER_TAP(prev_kc)                             \
+)
+
+bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    static uint16_t prev_keycode, next_keycode;
+    static bool     is_pressed[UINT8_MAX];
+
+    if (record->event.pressed) {
+        prev_keycode = next_keycode;
+        next_keycode = keycode;
+    }
+
+    // Override non-Shift tap-hold keys based on previous input
+    if (IS_HOMEROW_CAG(keycode)) {
+        uint8_t const tap_keycode = QK_MOD_TAP_GET_TAP_KEYCODE(keycode);
+        // Press the tap keycode when precedeed by short text input interval
+        if (record->event.pressed && IS_TYPING(prev_keycode)) {
+            record->keycode = tap_keycode;
+            is_pressed[tap_keycode] = true;
+        }
+        // Release the tap keycode if pressed
+        else if (!record->event.pressed && is_pressed[tap_keycode]) {
+            record->keycode = tap_keycode;
+            is_pressed[tap_keycode] = false;
+        }
+    }
+
+    return true;
+}
+
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ST_MACRO_0:
