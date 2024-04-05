@@ -30,16 +30,16 @@ layers:
     - P
     - {t: \, h: Mouse}
     - {t: ESCAPE, h: Numpad}
-    - WHOME A
-  - - WHOME S
-    - WHOME D
-    - WHOME F
+    - WH CTL A
+  - - WH ALT S
+    - WH GUI D
+    - WH SFT F
     - G
     - H
-    - WHOME J
-    - WHOME K
-    - WHOME L
-    - WHOME SCLN
+    - WH SFT J
+    - WH CTL K
+    - WH ALT L
+    - WH GUI SCLN
     - {t: '''', h: Numpad}
   - [LEFT ALT, Z, X, C, V, B, ⇧Ins/^A, MEH, N, M]
   - [',', ., /, LEFT GUI, '`', NUBS, LSFT(LEFT CTRL), LEFT, RIGHT, DOWN]
@@ -243,16 +243,16 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - MHOME A
-  - - MHOME S
-    - MHOME D
-    - MHOME F
+    - MH CTL A
+  - - MH ALT S
+    - MH GUI D
+    - MH SFT F
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - MHOME J
-    - MHOME K
-    - MHOME L
-    - MHOME SCLN
+    - MH SFT J
+    - MH GUI K
+    - MH ALT L
+    - MH CTL SCLN
     - {t: ▽, type: trans}
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}

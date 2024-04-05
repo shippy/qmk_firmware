@@ -1,4 +1,11 @@
-# Quantum Mechanical Keyboard Firmware
+# Simon's QMK Fork (Ergodox EZ with [Adv360 Equivalence](https://github.com/shippy/Adv360-Pro-ZMK))
+
+## Keymap
+
+![Keymap](keyboards/ergodox_ez/glow/keymaps/adv360_eq/keymap.svg)
+
+
+## Quantum Mechanical Keyboard Firmware
 
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
 [![Discord](https://img.shields.io/discord/440868230475677696.svg)](https://discord.gg/Uq7gcHh)
