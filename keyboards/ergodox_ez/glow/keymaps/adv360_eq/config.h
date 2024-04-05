@@ -13,9 +13,9 @@
 #define LAYER_STATE_8BIT
 
 #define RGB_MATRIX_STARTUP_SPD 60
-
-// Tap-hold configuration for home row mods.
-#define ACHORDION_STREAK
 #define TAPPING_TERM 175
 #define PERMISSIVE_HOLD
-#define QUICK_TAP_TERM_PER_KEY
+#define QUICK_TAP_TERM 150
+
+// #define QUICK_TAP_TERM_PER_KEY
+// needs uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {

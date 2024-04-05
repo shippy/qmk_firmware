@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
-#include "features/achordion.h"
 
 enum custom_keycodes {
   RGB_SLD = SAFE_RANGE,
@@ -159,8 +158,6 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_achordion(keycode, record)) { return false; }
-
   switch (keycode) {
     case ST_MACRO_0:
     if (record->event.pressed) {
@@ -176,29 +173,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
-
-void matrix_scan_user(void) {
-  achordion_task();
-}
-
-// Per https://getreuer.info/posts/keyboards/achordion/index.html#tap_hold_configuration
-uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t* record) {
-  // If you quickly hold a tap-hold key after tapping it, the tap action is
-  // repeated. Key repeating is useful e.g. for Vim navigation keys, but can
-  // lead to missed triggers in fast typing. Here, returning 0 means we
-  // instead want to "force hold" and disable key repeating.
-  switch (keycode) {
-    // Repeating is useful for Vim navigation keys.
-    case MHOME_J:  // same as WHOME_J
-    case MHOME_K:
-    case MHOME_L:  // same as WHOME_L
-    case WHOME_K:
-      return QUICK_TAP_TERM;  // Enable key repeating.
-    default:
-      return 0;  // Otherwise, force hold and disable key repeating.
-  }
-}
-
 
 uint8_t layer_state_set_user(uint8_t state) {
     uint8_t layer = biton(state);
