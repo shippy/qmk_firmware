@@ -465,3 +465,9 @@ distclean_userspace: clean
 	rm -f $(QMK_USERSPACE)/*.bin $(QMK_USERSPACE)/*.hex $(QMK_USERSPACE)/*.uf2
 	echo 'done.'
 endif
+
+EZ_FOLDER := keyboards/ergodox_ez/glow/keymaps/adv360_eq
+.PHONY: keymap_ez
+keymap_ez:
+	$(QMK_BIN) c2json $(EZ_FOLDER)/keymap.c --no-cpp | keymap --config $(EZ_FOLDER)/keymap.config.yaml parse --layer-names Base Numpad Mouse Mac -c 10 -q - > $(EZ_FOLDER)/keymap.yaml
+	keymap --config $(EZ_FOLDER)/keymap.config.yaml draw $(EZ_FOLDER)/keymap.yaml > $(EZ_FOLDER)/keymap.svg
