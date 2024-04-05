@@ -1,0 +1,292 @@
+layout: {qmk_keyboard: ergodox_ez/glow, qmk_layout: LAYOUT_ergodox_pretty}
+layers:
+  Base:
+  - - {t: '=', h: MOD_LCTL}
+    - {t: '1', h: MOD_LALT}
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - F2/ toggle Numpad/ ^⇧P
+    - {t: Mac, h: toggle}
+    - '6'
+    - '7'
+  - - '8'
+    - '9'
+    - '0'
+    - '-'
+    - {t: TAB, h: Mouse}
+    - Q
+    - W
+    - E
+    - R
+    - T
+  - - ^C/^X
+    - ^A/^Z
+    - Y
+    - U
+    - I
+    - O
+    - P
+    - {t: \, h: Mouse}
+    - {t: ESCAPE, h: Numpad}
+    - WHOME A
+  - - WHOME S
+    - WHOME D
+    - WHOME F
+    - G
+    - H
+    - WHOME J
+    - WHOME K
+    - WHOME L
+    - WHOME SCLN
+    - {t: '''', h: Numpad}
+  - [LEFT ALT, Z, X, C, V, B, ⇧Ins/^A, MEH, N, M]
+  - [',', ., /, LEFT GUI, '`', NUBS, LSFT(LEFT CTRL), LEFT, RIGHT, DOWN]
+  - - UP
+    - '['
+    - ']'
+    - RSFT(RIGHT CTRL)
+    - LEFT SHIFT
+    - LEFT CTRL
+    - {t: LEFT GUI, h: MOD_RCTL}
+    - RIGHT SHIFT
+    - {t: HOME, h: MOD_RGUI}
+    - {t: PAGE UP, h: MOD_LGUI}
+  - - BSPC
+    - DELETE
+    - {t: END, h: MOD_RALT}
+    - {t: PGDN, h: MOD_LALT}
+    - ENTER
+    - SPACE
+  Numpad:
+  - - ESCAPE
+    - F1
+    - F2
+    - F3
+    - F4
+    - F5
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - F6
+    - F7
+  - - F8
+    - F9
+    - F10
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '!'
+    - '@'
+    - '{'
+    - '}'
+    - '|'
+  - - ST MACRO 0
+    - NUBS
+    - UP
+    - '7'
+    - '8'
+    - '9'
+    - '*'
+    - {t: ▽, type: trans}
+    - {type: held}
+    - '#'
+  - - $
+    - (
+    - )
+    - '`'
+    - DOWN
+    - '4'
+    - '5'
+    - '6'
+    - +
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - '%'
+    - ^
+    - '['
+    - ']'
+    - '~'
+    - PSCR
+    - TAB
+    - '&'
+    - '1'
+  - - '2'
+    - '3'
+    - \
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '0'
+  - - .
+    - ':'
+    - '='
+    - PSCR
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  Mouse:
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - QK BOOT
+    - {type: held}
+    - {t: ▽, type: trans}
+    - MS BTN1
+    - MS UP
+    - MS BTN2
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - MS WH UP
+  - - MS LEFT
+    - MS DOWN
+    - MS RIGHT
+    - MS WH DOWN
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - MEDIA PLAY PAUSE
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - MEDIA PREV TRACK
+    - MEDIA NEXT TRACK
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - AUDIO VOL DOWN
+  - - AUDIO VOL UP
+    - AUDIO MUTE
+    - MEDIA PLAY PAUSE
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - WWW BACK
+  Mac:
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - RGUI(RSFT(P))
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - ⌘C/⌘X
+    - ⌘A/⌘Z
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - MHOME A
+  - - MHOME S
+    - MHOME D
+    - MHOME F
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - MHOME J
+    - MHOME K
+    - MHOME L
+    - MHOME SCLN
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - RGUI(V)
+    - ⌘<space>, ^<space>, ⌘^Q
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - RIGHT CTRL
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - LEFT GUI
+    - LEFT GUI
+    - {t: ▽, type: trans}
+    - {t: HOME, h: MOD_LCTL}
+    - {t: PAGE UP, h: MOD_RCTL}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}

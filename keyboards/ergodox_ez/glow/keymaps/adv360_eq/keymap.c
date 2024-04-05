@@ -7,26 +7,26 @@ enum custom_keycodes {
 };
 
 // Home row mods for the Windows layer
-#define WHOME_A LCTL_T(KC_A)
-#define WHOME_S LALT_T(KC_S)
-#define WHOME_D LGUI_T(KC_D)
-#define WHOME_F LSFT_T(KC_F)
+#define WH_CTL_A LCTL_T(KC_A)
+#define WH_ALT_S LALT_T(KC_S)
+#define WH_GUI_D LGUI_T(KC_D)
+#define WH_SFT_F LSFT_T(KC_F)
 
-#define WHOME_J RSFT_T(KC_J)
-#define WHOME_K RCTL_T(KC_K)
-#define WHOME_L RALT_T(KC_L)
-#define WHOME_SCLN RGUI_T(KC_SCLN)
+#define WH_SFT_J RSFT_T(KC_J)
+#define WH_CTL_K RCTL_T(KC_K)
+#define WH_ALT_L LALT_T(KC_L)
+#define WH_GUI_SCLN RGUI_T(KC_SCLN)
 
 // Home row mods for Mac layer.
-#define MHOME_A LCTL_T(KC_A)
-#define MHOME_S LALT_T(KC_S)
-#define MHOME_D LGUI_T(KC_D)
-#define MHOME_F LSFT_T(KC_F)
+#define MH_CTL_A LCTL_T(KC_A)
+#define MH_ALT_S LALT_T(KC_S)
+#define MH_GUI_D LGUI_T(KC_D)
+#define MH_SFT_F LSFT_T(KC_F)
 
-#define MHOME_J RSFT_T(KC_J)
-#define MHOME_K RGUI_T(KC_K)
-#define MHOME_L RALT_T(KC_L)
-#define MHOME_SCLN RCTL_T(KC_SCLN)
+#define MH_SFT_J RSFT_T(KC_J)
+#define MH_GUI_K RGUI_T(KC_K)
+#define MH_ALT_L LALT_T(KC_L)
+#define MH_CTL_SCLN RCTL_T(KC_SCLN)
 
 
 enum tap_dance_codes {
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     MT(MOD_LCTL, KC_EQUAL),MT(MOD_LALT, KC_1),KC_2,           KC_3,           KC_4,           KC_5,           TD(DANCE_0),                                    TG(3),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
     LT(2,KC_TAB),   KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TD(DANCE_1),                                    TD(DANCE_3),    KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           LT(2,KC_BSLS),
-    LT(1,KC_ESCAPE),WHOME_A,        WHOME_S,        WHOME_D,        WHOME_F,        KC_G,                                                                           KC_H,           WHOME_J,        WHOME_K,        WHOME_L,        WHOME_SCLN,     LT(1,KC_QUOTE),
+    LT(1,KC_ESCAPE),WH_CTL_A,        WH_ALT_S,        WH_GUI_D,        WH_SFT_F,        KC_G,                                                                           KC_H,           WH_SFT_J,        WH_CTL_K,        WH_ALT_L,        WH_GUI_SCLN,     LT(1,KC_QUOTE),
     KC_LEFT_ALT,    KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           TD(DANCE_2),                                    KC_MEH,         KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_LEFT_GUI,
     KC_GRAVE,       KC_NUBS,        LSFT(KC_LEFT_CTRL),KC_LEFT,        KC_RIGHT,                                                                                                       KC_DOWN,        KC_UP,          KC_LBRC,        KC_RBRC,        RSFT(KC_RIGHT_CTRL),
                                                                                                     KC_LEFT_SHIFT,      KC_LEFT_CTRL,   MT(MOD_RCTL, KC_LEFT_GUI), KC_RIGHT_SHIFT,
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [3] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, RGUI(RSFT(KC_P)),                                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TD(DANCE_4),                                    TD(DANCE_5),    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, MHOME_A,        MHOME_S,        MHOME_D,        MHOME_F,        KC_TRANSPARENT,                                                                 KC_TRANSPARENT, MHOME_J,        MHOME_K,        MHOME_L,        MHOME_SCLN,     KC_TRANSPARENT,
+    KC_TRANSPARENT, MH_CTL_A,        MH_ALT_S,        MH_GUI_D,        MH_SFT_F,        KC_TRANSPARENT,                                                                 KC_TRANSPARENT, MH_SFT_J,        MH_GUI_K,        MH_ALT_L,        MH_CTL_SCLN,     KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, RGUI(KC_V),                                     TD(DANCE_6),    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_RIGHT_CTRL,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_LEFT_GUI,    KC_LEFT_GUI,    KC_TRANSPARENT,
