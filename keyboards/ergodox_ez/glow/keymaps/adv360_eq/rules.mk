@@ -7,5 +7,8 @@ DYNAMIC_MACRO_ENABLE = no
 TAP_DANCE_ENABLE = yes
 LTO_ENABLE = yes
 
-# Also enables filterpaper's gist (doesn't work with COMBO_ENABLE = yes):
+# Also enables filterpaper's gist (doesn't work without COMBO_ENABLE = yes):
 COMBO_ENABLE = yes
+
+# Caps Word
+CAPS_WORD_ENABLE = yes
