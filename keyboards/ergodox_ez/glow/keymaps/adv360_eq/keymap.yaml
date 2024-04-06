@@ -42,7 +42,7 @@ layers:
     - WH GUI SCLN
     - {t: '''', h: Numpad}
   - [LEFT ALT, Z, X, C, V, B, ⇧Ins/^A, MEH, N, M]
-  - [',', ., /, LEFT GUI, '`', NUBS, LSFT(LEFT CTRL), LEFT, RIGHT, DOWN]
+  - [',', ., /, LEFT GUI, '`', NUBS, CapsWord, LEFT, RIGHT, DOWN]
   - - UP
     - '['
     - ']'
