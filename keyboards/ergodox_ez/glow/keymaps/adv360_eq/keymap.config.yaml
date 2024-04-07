@@ -44,6 +44,7 @@ parse_config:
     "TD(DANCE_4)": "⌘C/⌘X"
     "TD(DANCE_5)": "⌘A/⌘Z"
     "TD(DANCE_6)": "⌘<space>, ^<space>, ⌘^Q"
+    "TD(DANCE_7)": "⌘⇧P, F2"
     "CW TOGG": "CapsWord"
     "CW_TOGG": "CapsWord"
   sticky_label: sticky
