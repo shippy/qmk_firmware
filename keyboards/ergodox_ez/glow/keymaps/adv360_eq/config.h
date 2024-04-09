@@ -16,6 +16,7 @@
 
 // Settings to do with home row mods
 #define TAPPING_TERM 175
+#define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD
 // Must be less than or equal to TAPPING_TERM
 #define QUICK_TAP_TERM 150

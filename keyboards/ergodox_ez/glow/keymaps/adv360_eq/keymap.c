@@ -211,20 +211,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LT(3, KC_Z):
         if (!record->tap.count && record->event.pressed) {
             tap_code16(LGUI(KC_Z));
+            layer_state_set_user(3);
             return false;
         }
         return true;
 
     case LT(3, KC_X):
-      if (!record->tap.count && record->event.pressed) {
-        tap_code16(G(KC_X));
-        return false;
-      }
-      return true;
+        if (!record->tap.count && record->event.pressed) {
+            tap_code16(G(KC_X));
+            layer_state_set_user(3);
+            return false;
+        }
+        return true;
 
     case LT(3, KC_C):
         if (!record->tap.count && record->event.pressed) {
             tap_code16(LGUI(KC_C));
+            layer_state_set_user(3);
             return false;
         }
         return true;
@@ -232,6 +235,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LT(3, KC_V):
         if (!record->tap.count && record->event.pressed) {
             tap_code16(LGUI(KC_V));
+            layer_state_set_user(3);
             return false;
         }
         return true;
@@ -244,6 +248,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case TD(DANCE_6):
+            return TAPPING_TERM + 500;
+        case LT(3, KC_Z):
+        case LT(3, KC_X):
+        case LT(3, KC_C):
+        case LT(3, KC_V):
+            return TAPPING_TERM + 250;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
 
 uint8_t layer_state_set_user(uint8_t state) {
     uint8_t layer = biton(state);
