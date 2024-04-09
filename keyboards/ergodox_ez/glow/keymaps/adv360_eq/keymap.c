@@ -71,11 +71,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_WWW_BACK
   ),
+  // Mac layer with home row mods and long-presses for Cmd+Z, Cmd+X, Cmd+C, and Cmd+V
   [3] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TD(DANCE_7),                                KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TD(DANCE_4),                                    TD(DANCE_5),    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, MH_CTL_A,       MH_ALT_S,       MH_GUI_D,       MH_SFT_F,       KC_TRANSPARENT,                                                                         KC_TRANSPARENT, MH_SFT_J,       MH_GUI_K,       MH_ALT_L,       MH_CTL_SCLN,     KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, RGUI(KC_V),                                     TD(DANCE_6),    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_RIGHT_CTRL,
+    KC_TRANSPARENT, LT(3, KC_Z),    LT(3, KC_X),    LT(3, KC_C),    LT(3, KC_V),    KC_TRANSPARENT, RGUI(KC_V),                                     TD(DANCE_6),    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_RIGHT_CTRL,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_LEFT_GUI,    KC_LEFT_GUI,    KC_TRANSPARENT,
                                                                                                                     MT(MOD_LCTL, KC_HOME),MT(MOD_RCTL, KC_PAGE_UP),
@@ -201,10 +202,39 @@ bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ST_MACRO_0:
-    if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_S)) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_N));
-    }
+      if (record->event.pressed) {
+        SEND_STRING("Simon");
+      }
     break;
+
+    // Hold functionality for Z, C, X, and V on Mac (3) layer and base (0) layer
+    case LT(3, KC_Z):
+        if (!record->tap.count && record->event.pressed) {
+            tap_code16(LGUI(KC_Z));
+            return false;
+        }
+        return true;
+
+    case LT(3, KC_X):
+      if (!record->tap.count && record->event.pressed) {
+        tap_code16(G(KC_X));
+        return false;
+      }
+      return true;
+
+    case LT(3, KC_C):
+        if (!record->tap.count && record->event.pressed) {
+            tap_code16(LGUI(KC_C));
+            return false;
+        }
+        return true;
+
+    case LT(3, KC_V):
+        if (!record->tap.count && record->event.pressed) {
+            tap_code16(LGUI(KC_V));
+            return false;
+        }
+        return true;
 
     case RGB_SLD:
       if (record->event.pressed) {
