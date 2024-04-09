@@ -211,7 +211,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LT(3, KC_Z):
         if (!record->tap.count && record->event.pressed) {
             tap_code16(LGUI(KC_Z));
-            layer_state_set_user(3);
+            layer_on(3);
             return false;
         }
         return true;
@@ -219,7 +219,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LT(3, KC_X):
         if (!record->tap.count && record->event.pressed) {
             tap_code16(G(KC_X));
-            layer_state_set_user(3);
+            layer_on(3);
             return false;
         }
         return true;
@@ -227,7 +227,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LT(3, KC_C):
         if (!record->tap.count && record->event.pressed) {
             tap_code16(LGUI(KC_C));
-            layer_state_set_user(3);
+            layer_on(3);
             return false;
         }
         return true;
@@ -235,7 +235,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LT(3, KC_V):
         if (!record->tap.count && record->event.pressed) {
             tap_code16(LGUI(KC_V));
-            layer_state_set_user(3);
+            layer_on(3);
             return false;
         }
         return true;
